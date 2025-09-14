@@ -67,7 +67,7 @@ fun BusinessCardScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             ProfileSection(
-                name = "Jennifer Doe",
+                name = "Nguyen Anh Tuan",
                 title = "Android Developer Extraordinaire"
             )
         }
@@ -79,8 +79,8 @@ fun BusinessCardScreen() {
                 .padding(start = 16.dp, bottom = 16.dp)
         ) {
             ContactSection(
-                phone = "+11 (123) 444 555 666",
-                email = "jen.doe@android.com",
+                phone = "+84 868 185 758",
+                email = "nguyenanhtuan070305@gmail.com",
                 social = "@AndroidDev"
             )
         }
