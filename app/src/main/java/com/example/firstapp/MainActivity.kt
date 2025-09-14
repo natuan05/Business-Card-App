@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
@@ -28,7 +29,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -97,11 +100,7 @@ fun ProfileSection(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxWidth()
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.android_logo),
-            contentDescription = null, // chỉ trang trí
-            modifier = Modifier.size(120.dp)
-        )
+        LogoBadge()
         Spacer(Modifier.height(16.dp))
         Text(
             text = name,
@@ -115,7 +114,23 @@ fun ProfileSection(
         )
     }
 }
-
+@Composable
+fun LogoBadge() {
+    Box(
+        modifier = Modifier
+            .size(120.dp) // kích thước khung vuông
+            .clip(RoundedCornerShape(8.dp)) // bo góc nhẹ
+            .background(Color.Black),       // nền đen
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.android_logo), // ảnh PNG/SVG nền trong suốt
+            contentDescription = null,
+            modifier = Modifier.size(72.dp),   // kích thước logo bên trong
+            contentScale = ContentScale.Fit
+        )
+    }
+}
 @Composable
 fun ContactSection(
     phone: String,
